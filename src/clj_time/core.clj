@@ -70,17 +70,13 @@
   (:use [clojure.contrib.def :only (defvar)])
   (:import (org.joda.time DateTime DateTimeZone Period Interval)))
 
-(defvar utc
-  (DateTimeZone/UTC)
-  "DateTimeZone for UTC.")
-
 (defn now []
   "Returns a DateTime for the current instant in the UTC time zone."
-  (DateTime. #^DateTimeZone utc))
+  (DateTime.))
 
 (defn epoch []
   "Returns a DateTime for the begining of the Unix epoch in the UTC time zone."
-  (DateTime. (long 0) #^DateTimeZone utc))
+  (DateTime. (long 0)))
 
 (defn date-time
   "Constructs and returns a new DateTime in UTC.
@@ -103,7 +99,7 @@
    (date-time year month day hour minute second 0))
   ([#^Integer year #^Integer month #^Integer day #^Integer hour
     #^Integer minute #^Integer second #^Integer millis]
-   (DateTime. year month day hour minute second millis #^DateTimeZone utc)))
+   (DateTime. year month day hour minute second millis)))
 
 (defn year
   "Return the year component of the given DateTime."

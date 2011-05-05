@@ -35,13 +35,6 @@
   (let [d (date-time 1918 11 11)]
     (is (= 1 (day-of-week d)))))
 
-(deftest test-time-zone-for-offset
-  (is (= utc (time-zone-for-offset 0)))
-  (is (= (time-zone-for-offset 10 0) (time-zone-for-offset 10))))
-
-(deftest test-time-zone-for-id
-  (is (= utc (time-zone-for-id "UTC"))))
-
 (deftest test-to-time-zone
   (let [tz  (time-zone-for-offset 2)
         dt1 (date-time 1986 10 14 6)

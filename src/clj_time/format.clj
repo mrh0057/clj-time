@@ -40,7 +40,7 @@
 (defn formatter
   "Returns a custom formatter for the given date-time pattern."
   ([#^String fmts]
-     (formatter fmts utc))
+     (formatter fmts (DateTimeZone/getDefault)))
   ([#^String fmts #^DateTimeZone dtz]
      (.withZone (DateTimeFormat/forPattern fmts) dtz)))
 
@@ -66,7 +66,7 @@
 
 (defvar formatters
   (into {} (map
-    (fn [[k #^DateTimeFormatter f]] [k (.withZone f #^DateTimeZone utc)])
+    (fn [[k #^DateTimeFormatter f]] [k (.withZone f #^DateTimeZone (DateTimeZone/getDefault))])
     {:basic-date (ISODateTimeFormat/basicDate)
      :basic-date-time (ISODateTimeFormat/basicDateTime)
      :basic-date-time-no-ms (ISODateTimeFormat/basicDateTimeNoMillis)

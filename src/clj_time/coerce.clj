@@ -23,7 +23,7 @@
   "Returns a DateTime instance in the UTC time zone corresponding to the given
    number of milliseconds after the Unix epoch."
    [#^Long millis]
-   (DateTime. millis #^DateTimeZone utc))
+   (DateTime. millis #^DateTimeZone (. DateTimeZone getDefault)))
 
 (defn from-string
   "return DateTime instance from string using

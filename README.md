@@ -1,5 +1,7 @@
 # `clj-time`
 
+Made it where the default is your local timezone instead of UTC.
+
 A date and time library for Clojure, wrapping the [Joda Time](http://joda-time.sourceforge.net/) library.
 
 ## Usage
@@ -34,8 +36,6 @@ If on the other hand you want a given absolute instant in time in a different ti
 
     => (to-time-zone (date-time 1986 10 22) (time-zone-for-offset -2))
     #<DateTime 1986-10-21T22:00:00.000-02:00>
-
-In addition to `time-zone-for-offset`, you can use the `time-zone-for-id` and `default-time-zone` functions and the `utc` Var to construct or get `DateTimeZone` instances.
 
 The functions `after?` and `before?` determine the relative position of two
 DateTime instances:
